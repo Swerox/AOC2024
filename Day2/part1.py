@@ -17,20 +17,18 @@ safe_packs = []
 
 def get_de_or_in(a, b):
     if a > b:
-        if a - b in {1,2,3}:
+        if a - b in {1, 2, 3}:
             return True
     if b > a: 
-        if b - a in {1,2,3}:
+        if b - a in {1, 2, 3}:
             return True
     if a == b:
         return False
 
 
 def is_monotonic(lst):
-
     increasing = all(int(lst[i]) < int(lst[i + 1]) for i in range(len(lst) - 1))
     decreasing = all(int(lst[i]) > int(lst[i + 1]) for i in range(len(lst) - 1))
-
     return increasing or decreasing
     
     
