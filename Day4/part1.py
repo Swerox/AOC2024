@@ -47,4 +47,4 @@ if __name__ == "__main__":
     data = data.replace("\n", "")
         
     result = count_xmas_occurrences(data)
-    print(f"Number of 'XMAS' occurrences: {result}")
+    print(f"{result}")
