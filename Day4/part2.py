@@ -1,11 +1,14 @@
-import re2
-from input import data
+"""RESULT IS NOT MINE IM TOO BAD FOR IT"""
 
-data = data.replace("\n", "")
+import numpy as np
 
-# part 1
-patterns = ["XMAS", "X...\n.M..\n..A.\n...S"]
-print(sum(len(re2.findall(pattern, data, rotate=True)) for pattern in patterns))
+npa = lambda *s: np.array(list(map(list, s)))
+swv = np.lib.stride_tricks.sliding_window_view
+input = npa(*open('Day4/input.txt').read().splitlines())
+n_matches = lambda k: np.sum(np.all(np.logical_or(swv(input, k.shape) == k, k == '.'), axis=(2, 3)))
+num = lambda k: sum( n_matches(np.rot90(k, i)) for i in range(4) )
+s2k = lambda *s: num(npa(*s))
+result1 = s2k('XMAS') + s2k('X...', '.M..', '..A.', '...S')
+result2 = s2k('M.S', '.A.', 'M.S')
 
-# part 2
-print(len(re2.findall("M.M\n.A.\nS.S", data, rotate=True)))
+print(result1, result2, sep='\n')
