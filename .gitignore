@@ -3,5 +3,4 @@ Day*/input.py
 Day*/__pycache__
 __pycache__
 /__pycache__
-handler.py
-helper.py
+cookie.py
